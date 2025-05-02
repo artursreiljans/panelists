@@ -1,0 +1,9 @@
+{% macro links(links) %}
+<nav>
+    <ul>
+        <li><a href="{{ links.view.url }}">{{ links.view.title }}</a></li>
+        <li><a href="{{ links.edit.url }}">{{ links.edit.title }}</a></li>
+        <li><a href="{{ links.delete.url }}">{{ links.delete.title }}</a></li>
+    </ul>
+</nav>
+{% endmacro %}

@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: app_php
+        working_dir: /var/www/app
+        volumes:
+            - .:/var/www/app
+        depends_on:
+            - db
+        environment:
+            APP_SECRET: b4809e3fa4be86ef4401d080d83d5654
+            DATABASE_URL: "mysql://app:app@db:3306/app?serverVersion=11"
+            TZ: 'UTC'
+
+    webserver:
+        image: nginx:stable-alpine
+        container_name: app_nginx
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/app
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - php
+        environment:
+            TZ: 'UTC'
+
+    db:
+        image: mariadb:11
+        container_name: app_db
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: root
+            MARIADB_DATABASE: app
+            MARIADB_USER: app
+            MARIADB_PASSWORD: app
+            TZ: 'UTC'
+        ports:
+            - "3306:3306"
+        volumes:
+            - database:/var/lib/mysql
+
+volumes:
+    database:

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ panelist.fullName }}{% endblock %}
+
+{% block body %}
+<dl>
+    <dt>{{ 'panelist.first_name'|trans }}</dt>
+    <dd>{{ panelist.firstName }}</dd>
+    <dt>{{ 'panelist.last_name'|trans }}</dt>
+    <dd>{{ panelist.lastName }}</dd>
+    <dt>{{ 'panelist.email'|trans }}</dt>
+    <dd>{{ panelist.email }}</dd>
+    <dt>{{ 'panelist.phone'|trans }}</dt>
+    <dd>{{ panelist.phone }}</dd>
+    <dt>{{ 'panelist.country'|trans }}</dt>
+    <dd>{{ panelist.country.title }}</dd>
+    <dt>{{ 'panelist.is_subscribed'|trans }}</dt>
+    <dd>{{ panelist.isSubscribed.title }}</dd>
+    <dt>{{ 'panelist.created_at'|trans }}</dt>
+    <dd>{{ panelist.createdAt|format_datetime }}</dd>
+</dl>
+
+{{ form(form) }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% from 'macro/links.html.twig' import links %}
+
+{% block title %}{{ 'panelist.list'|trans }}{% endblock %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>{{ 'panelist.first_name'|trans }}</th>
+            <th>{{ 'panelist.last_name'|trans }}</th>
+            <th>{{ 'panelist.email'|trans }}</th>
+            <th>{{ 'panelist.country'|trans }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for panelist in panelists %}
+        <tr>
+            <td>{{ panelist.firstName }}</td>
+            <td>{{ panelist.lastName }}</td>
+            <td>{{ panelist.email }}</td>
+            <td>{{ panelist.country.title }}</td>
+            <td>{{ links(panelist.links) }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">{{ 'panelist.no_results'|trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h2>{{ 'panelist.add_new'|trans }}</h2>
+{{ form(form) }}
+{% endblock %}

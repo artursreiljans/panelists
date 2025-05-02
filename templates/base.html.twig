@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ app_title }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<main class="container">
+    <header>{{ app_title }}</header>
+    <nav>
+        <ul>
+            {% for item in menu %}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <h1>{{ block('title') }}</h1>
+    {% block body %}{% endblock %}
+</main>
+</body>
+</html>

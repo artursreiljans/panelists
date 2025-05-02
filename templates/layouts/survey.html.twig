@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ survey.name }}{% endblock %}
+
+{% block body %}
+<dl>
+    <dt>{{ 'survey.name'|trans }}</dt>
+    <dd>{{ survey.name }}</dd>
+    <dt>{{ 'survey.status'|trans }}</dt>
+    <dd>{{ survey.status.title }}</dd>
+    <dt>{{ 'survey.created_at'|trans }}</dt>
+    <dd>{{ survey.createdAt|format_datetime }}</dd>
+</dl>
+{% endblock %}

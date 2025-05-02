@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% from 'macro/links.html.twig' import links %}
+
+{% block title %}{{ 'survey.list'|trans }}{% endblock %}
+
+{% block body %}
+    <a href="{{ creationLink.url }}">{{ creationLink.title }}</a>
+    <table>
+        <thead>
+            <tr>
+                <th>{{ 'survey.name'|trans }}</th>
+                <th>{{ 'survey.status'|trans }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for survey in surveys %}
+            <tr>
+                <td>{{ survey.name }}</td>
+                <td>{{ survey.status.title }}</td>
+                <td>{{ links(survey.links) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
