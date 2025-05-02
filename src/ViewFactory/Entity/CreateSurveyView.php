@@ -15,9 +15,6 @@ use App\View\Entity\SurveyView;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * @author Artūrs Reiljans <ernt@ernt.lv>
- */
 final readonly class CreateSurveyView
 {
     public function __construct(

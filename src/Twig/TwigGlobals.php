@@ -26,7 +26,7 @@ final class TwigGlobals extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return [
-            'app_title' => $this->appTitle,
+            'appTitle' => $this->appTitle,
             'menu' => [
                 $this->createLink(
                     PanelistIndexController::class,

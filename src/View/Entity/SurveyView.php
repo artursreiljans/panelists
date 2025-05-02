@@ -7,9 +7,6 @@ namespace App\View\Entity;
 use App\View\Element\LinksView;
 use App\View\Element\StatusView;
 
-/**
- * @author Artūrs Reiljans <ernt@ernt.lv>
- */
 final readonly class SurveyView
 {
     public function __construct(

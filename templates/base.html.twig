@@ -2,12 +2,12 @@
 <html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{{ app_title }}{% endblock %}</title>
+    <title>{% block title %}{{ appTitle }}{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 <main class="container">
-    <header>{{ app_title }}</header>
+    <header>{{ appTitle }}</header>
     <nav>
         <ul>
             {% for item in menu %}
